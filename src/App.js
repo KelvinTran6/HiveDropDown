@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { DropDown } from "./components/DropDown.tsx"
 
-function App() {
+export default function App() {
+  const data = {
+    options: [
+      "test2",
+      "meow",
+      "123",
+      "more",
+      "kelvin",
+      "smelvin",
+      "tom",
+      "psyduck",
+      "kelvin",
+      "smelvin",
+      "tom",
+      "kelvin",
+      "smelvin",
+      "tom",
+      "psyduck",
+      "kelvin",
+      "smelvin",
+      "tom",
+      "psyduck",
+      "kelvin",
+      "smelvin",
+      "tom",
+      "psyduck",
+    ],
+  };
+
+  const [selected, setSelected] = useState([]);
+
+  const multiple = true; // Change to false for single selection mode
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DropDown
+          options={data.options}
+          selectedItems={selected}
+          onSelectedItemsChange={setSelected}
+          multipleSelection={multiple}
+      />
+      <button onClick={() => console.log(selected)}>submit</button>
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,46 @@
+.DropDown {
+    margin: 0 auto;
+}
+
+.DropDownElement {
+    display: flex;
+    padding: 10px;
+    justify-content: left;
+    transition: background-color 0.3s;
+}
+
+.selected {
+    background-color: #d9d9d9;
+}
+
+.DropDownElement:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.DropDownOptions {
+    align-items: left;
+    max-height: 250px;
+    overflow-y: scroll;
+    margin-top: 3px;
+    box-shadow: 3px 3px 10px 6px rgba(112, 112, 112, 0.06);
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+.CurrentSelected {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.04);
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: fit-content;
+    max-height: 3.0rem;
+    overflow-y: auto;
+    border: 2px solid #ccc;
+}
+
+.Selected:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}

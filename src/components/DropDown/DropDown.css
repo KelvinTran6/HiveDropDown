@@ -44,3 +44,14 @@
 .Selected:hover {
     background-color: rgba(0, 0, 0, 0.05); 
 }
+
+.Icon {
+    width: 10px; 
+    height: auto;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.open {
+    transform: rotate(180deg);
+}

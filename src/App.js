@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { DropDown } from "./components/DropDown.tsx"
+import { DropDown } from "./components/DropDown/DropDown.tsx"
 
 export default function App() {
   const data = {

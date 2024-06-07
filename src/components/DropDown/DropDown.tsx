@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./DropDown.css";
+import upArrow from './up-arrow-svgrepo-com.svg';
+
 
 interface DropDownProps {
     options: string[];
@@ -62,14 +64,15 @@ export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems 
     }, []);
 
     return (
-        <div className="DropDown">
+        <div className="DropDown" ref={dropDownRef}>
             <div className="CurrentSelected" onClick={() => setOpen(!open)}>
                 {multipleSelection
                     ? selectedItems.map((index) => options[index]).join(", ") || "Select..."
                     : options[selectedItems[0]] || "Select..."}
+                <img className={"Icon " + (open ? "open" : "")} src={upArrow} alt="SVG Icon" />
             </div>
             {open && (
-                <div className="DropDownOptions" ref={dropDownRef}>
+                <div className="DropDownOptions">
                     {multipleSelection && (
                         <DropDownElement
                             item={"Select All"}

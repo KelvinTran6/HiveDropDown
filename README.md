@@ -1,3 +1,10 @@
+# Hive AI Coding assessment
+- Code outside of components folder was written ONLY to show off the DropDown Component
+- DropDown accepts data and a handler from the parent component as demonstrated in App.js
+- In single-select mode, the drop down will scroll down to show the selected option, in multi-select this feature is turned off to allow users to select more items
+- both single and multi-select DropDowns will return an array for consistency and easier code management
+- For demonstration, you can hit the "print to console" button to print the index of all the selected items 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

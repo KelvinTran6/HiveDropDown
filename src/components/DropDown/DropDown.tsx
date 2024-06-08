@@ -8,9 +8,10 @@ interface DropDownProps {
     selectedItems?: number[];
     onSelectedItemsChange: (selectedItems: number[]) => void;
     multipleSelection: boolean;
+    placeHolder: string;
 }
 
-export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems = [], onSelectedItemsChange, multipleSelection }) => {
+export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems = [], onSelectedItemsChange, multipleSelection, placeHolder = ""}) => {
     const [open, setOpen] = useState<boolean>(false);
     const [selectAll, setSelectAll] = useState<boolean>(false);
     const dropDownRef = useRef<HTMLDivElement>(null);
@@ -65,12 +66,12 @@ export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems 
 
     return (
         <div className="DropDown" ref={dropDownRef}>
-            <div className="CurrentSelected" onClick={() => setOpen(!open)}>
+            <div  className="DropDownPreview" onClick={() => setOpen(!open)}>
                 {multipleSelection
-                    ? selectedItems.map((index) => options[index]).join(", ") || "Select..."
-                    : options[selectedItems[0]] || "Select..."}
+                    ? selectedItems.map((index) => options[index]).join(", ") || placeHolder
+                    : options[selectedItems[0]] || placeHolder}
                 <img className={"Icon " + (open ? "open" : "")} src={upArrow} alt="SVG Icon" />
-            </div>
+            </div >
             {open && (
                 <div className="DropDownOptions">
                     {multipleSelection && (
@@ -113,16 +114,18 @@ const DropDownElement: React.FC<DropDownElementProps> = ({ item, index = -1, sel
             data-index={index}
         >
             {multiple && (
-                <input
-                    className="Box"
-                    type="checkbox"
-                    checked={selected}
-                    readOnly
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleClick(index);
-                    }}
-                />
+                <div className="CheckBox">
+                    <input
+                        className="Box"
+                        type="checkbox"
+                        checked={selected}
+                        readOnly
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleClick(index);
+                        }}
+                    />
+                </div>
             )}
             {item}
         </div>

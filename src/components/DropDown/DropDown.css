@@ -1,5 +1,5 @@
 .DropDown {
-    margin: 0 auto;
+    width: 100%;
 }
 
 .DropDownElement {
@@ -18,25 +18,28 @@
 }
 
 .DropDownOptions {
+    position: absolute;
     align-items: left;
     max-height: 250px;
+    min-width: 200px;
     overflow-y: scroll;
-    margin-top: 3px;
+    margin-top: 8px;
     box-shadow: 3px 3px 10px 6px rgba(112, 112, 112, 0.06);
     border-radius: 10px;
     border: 2px solid #ccc;
 }
 
-.CurrentSelected {
+.DropDownPreview {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
     box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.04);
     transition: background-color 0.3s;
     border-radius: 10px;
     overflow: hidden;
     max-height: fit-content;
-    max-height: 3.0rem;
+    max-height: 3rem;
     overflow-y: auto;
     border: 2px solid #ccc;
 }
@@ -54,4 +57,8 @@
 
 .open {
     transform: rotate(180deg);
+}
+
+.CheckBox {
+    padding-right: 15px;
 }

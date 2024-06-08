@@ -11,7 +11,7 @@ interface DropDownProps {
     placeHolder: string;
 }
 
-export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems = [], onSelectedItemsChange, multipleSelection, placeHolder = ""}) => {
+export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems = [], onSelectedItemsChange, multipleSelection, placeHolder = "Select..."}) => {
     const [open, setOpen] = useState<boolean>(false);
     const [selectAll, setSelectAll] = useState<boolean>(false);
     const dropDownRef = useRef<HTMLDivElement>(null);
@@ -27,7 +27,7 @@ export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems 
             newSelectedItems = [index];
             setOpen(false);
         }
-        onSelectedItemsChange(newSelectedItems);
+        onSelectedItemsChange(newSelectedItems); //update selected items list
     };
 
     const handleSelectAll = (): void => {
@@ -70,7 +70,7 @@ export const DropDown: React.FC<DropDownProps> = ({ options = [], selectedItems 
                 {multipleSelection
                     ? selectedItems.map((index) => options[index]).join(", ") || placeHolder
                     : options[selectedItems[0]] || placeHolder}
-                <img className={"Icon " + (open ? "open" : "")} src={upArrow} alt="SVG Icon" />
+                <img className={"Icon " + (open ? "open" : "")} src={upArrow} />
             </div >
             {open && (
                 <div className="DropDownOptions">
